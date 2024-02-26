@@ -6,9 +6,9 @@ import NavLink from "../components/nav-link/nav-link";
 import LoginScreen from './loginScreen/loginScreen';
 
 // uncomment for using reactotron for mobile
-// if (__DEV__) {
-//     import("../ReactotronConfig").then(() => console.log("Reactotron Configured"));
-// }
+if (__DEV__) {
+    import("../ReactotronConfig").then(() => console.log("Reactotron Configured"));
+}
 
 const Stack = createNativeStackNavigator();
 
