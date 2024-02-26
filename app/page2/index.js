@@ -1,13 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import { Link } from "expo-router";
+import { TouchableOpacity } from 'react-native';
+import { router } from 'expo-router';
+
+
+const handleToLogIn = async () => {
+    router.navigate('/');
+  };
+
 
 export default function Page2() {
     return (
         <View style={styles.container}>
-            <Text>page 2</Text>
-            <Link href={'/'}>page 1</Link>
-
+            <Text>No dude, no guest entry for you. Go to log in</Text>
+            <TouchableOpacity style={styles.loginBtn} onPress={handleToLogIn}>
+        <Text style={styles.loginText}>Log in</Text>
+      </TouchableOpacity>
             <StatusBar style="auto" />
         </View>
     );
@@ -20,4 +28,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    loginBtn: {
+        width: 200,
+        backgroundColor: '#EE99C2',
+        borderRadius: 25,
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 40,
+        marginBottom: 10,
+      },
 });
