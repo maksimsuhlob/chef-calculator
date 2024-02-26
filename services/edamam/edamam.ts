@@ -47,10 +47,10 @@ const getIngredient = async (ingredientName: string): Promise<IParserResp> => {
   }
 }
 const getNutrientsInfo = async (ingredient: {
-    quantity: number,
-    measureURI: string,
-    qualifiers: string[]
-    foodId: string
+  quantity: number,
+  measureURI: string,
+  qualifiers: string[]
+  foodId: string
 }): Promise<INutrientsResp> => {
   try {
     const { data } = await edamamFood.post<INutrientsResp>('/nutrients', {
