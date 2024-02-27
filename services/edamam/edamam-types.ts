@@ -44,31 +44,31 @@ export interface IParserResp {
 }
 
 export type NutrientsDailyParams =
-  "ENERC_KCAL"
-  | "FAT"
-  | "FASAT"
-  | "CHOCDF"
-  | "FIBTG"
-  | "PROCNT"
-  | "CHOLE"
-  | "NA"
-  | "CA"
-  | "MG"
-  | "K"
-  | "FE"
-  | "ZN"
-  | "P"
-  | "VITA_RAE"
-  | "VITC"
-  | "THIA"
-  | "RIBF"
-  | "NIA"
-  | "VITB6A"
-  | "FOLDFE"
-  | "VITB12"
-  | "VITD"
-  | "TOCPHA"
-  | "VITK1"
+  'ENERC_KCAL'
+  | 'FAT'
+  | 'FASAT'
+  | 'CHOCDF'
+  | 'FIBTG'
+  | 'PROCNT'
+  | 'CHOLE'
+  | 'NA'
+  | 'CA'
+  | 'MG'
+  | 'K'
+  | 'FE'
+  | 'ZN'
+  | 'P'
+  | 'VITA_RAE'
+  | 'VITC'
+  | 'THIA'
+  | 'RIBF'
+  | 'NIA'
+  | 'VITB6A'
+  | 'FOLDFE'
+  | 'VITB12'
+  | 'VITD'
+  | 'TOCPHA'
+  | 'VITK1'
 export type NutrientTotalParams = NutrientsDailyParams | 'WATER'
 export type INutrientDaily = {
     [name in NutrientsDailyParams]: {
@@ -86,26 +86,26 @@ export type INutrientTotal = {
 };
 
 export interface INutrientsResp {
-    "uri": string
-    "calories": number
-    "totalWeight": number
-    "dietLabels": string[]
-    "healthLabels": string[]
-    "cautions": [],
-    "totalNutrients": INutrientTotal
-    "totalDaily": INutrientDaily
-    "ingredients": [
+    'uri': string
+    'calories': number
+    'totalWeight': number
+    'dietLabels': string[]
+    'healthLabels': string[]
+    'cautions': [],
+    'totalNutrients': INutrientTotal
+    'totalDaily': INutrientDaily
+    'ingredients': [
         {
-            "parsed": [
+            'parsed': [
                 {
-                    "quantity": 100,
-                    "measure": "gram",
-                    "food": "unbleached flour",
-                    "foodId": "food_ar3x97tbq9o9p6b6gzwj0am0c81l",
-                    "weight": 100,
-                    "retainedWeight": 100,
-                    "measureURI": "http://www.edamam.com/ontologies/edamam.owl#Measure_gram",
-                    "status": "OK"
+                    'quantity': 100,
+                    'measure': 'gram',
+                    'food': 'unbleached flour',
+                    'foodId': 'food_ar3x97tbq9o9p6b6gzwj0am0c81l',
+                    'weight': 100,
+                    'retainedWeight': 100,
+                    'measureURI': 'http://www.edamam.com/ontologies/edamam.owl#Measure_gram',
+                    'status': 'OK'
                 }
             ]
         }
@@ -123,7 +123,7 @@ interface ILinks {
     }
 }
 
-export type ImageSizeType = "THUMBNAIL" | "SMALL" | "REGULAR" | "LARGE"
+export type ImageSizeType = 'THUMBNAIL' | 'SMALL' | 'REGULAR' | 'LARGE'
 export type IReceiptImage = {
     [name in ImageSizeType]: {
         url: string
@@ -185,7 +185,7 @@ export interface IReceiptResponse {
                     daily: number
                     unit: string
                     sub: string
-                }[             ]
+                }[ ]
             },
             _links: ILinks
         }
