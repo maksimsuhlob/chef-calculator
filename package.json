@@ -8,9 +8,13 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "eslint . --fix",
-    "react-devtools-local": "npx react-devtools && adb reverse tcp:8097 tcp:8097"
+    "react-devtools-local": "npx react-devtools && adb reverse tcp:8097 tcp:8097",
+    "predeploy": "expo export -p web",
+    "deploy-web": "npm run predeploy && firebase deploy --only hosting",
+    "prepare": "husky"
   },
   "dependencies": {
+    "@expo/metro-config": "^0.17.5",
     "@expo/metro-runtime": "~3.1.3",
     "@react-navigation/elements": "^1.3.21",
     "@react-navigation/native": "^6.1.9",
@@ -21,6 +25,8 @@
     "expo-linking": "~6.2.2",
     "expo-router": "~3.4.7",
     "expo-status-bar": "~1.11.1",
+    "firebase": "^10.8.1",
+    "husky": "^9.0.11",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.73.4",
