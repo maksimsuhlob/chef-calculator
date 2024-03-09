@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 const Home = () => {
   const { navigate } = useRouter()
   const handleLogin = async () => {
-    navigate(NavigationRoutes.login)
+    navigate(NavigationRoutes.authorization('login'))
   }
 
   return (

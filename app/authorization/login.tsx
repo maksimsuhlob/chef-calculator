@@ -50,7 +50,7 @@ const App = () => {
     navigate(NavigationRoutes.guestPage)
   }
   const handleRegistration = async () => {
-    navigate(NavigationRoutes.registration)
+    navigate(NavigationRoutes.authorization('registration'))
   }
 
   return (
@@ -58,7 +58,7 @@ const App = () => {
       <Text style={styles.logo}>Cock book</Text>
       <InputLogin labelText="Email" setValue={setEmail} />
       <InputLogin labelText="Password" setValue={setPassword} secureText />
-      <Link href={NavigationRoutes.restorePassword}>Forgot your password?</Link>
+      <Link href={NavigationRoutes.authorization('restore-password')}>Forgot your password?</Link>
       <View style={styles.span} />
       <ButtonLogin buttonText="LOGIN" handleClick={handleLogin} />
       <ButtonLogin buttonText="Be my guest" handleClick={handleGuest} />

@@ -1,10 +1,9 @@
+type AuthorizationPage = 'login'|'registration'| 'restore-password'
 
 export const NavigationRoutes = {
   home: 'home',
   guestPage: 'guest-page',
-  login: 'authorization/login',
-  registration: 'authorization/registration',
-  restorePassword: 'authorization/restore-password',
+  authorization: (page:AuthorizationPage) => { return (`authorization/${page}`) },
   stock: 'stock',
   product: 'stock/[product]',
 }
