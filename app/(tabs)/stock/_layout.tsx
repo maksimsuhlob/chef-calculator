@@ -1,14 +1,15 @@
 import React from 'react'
 import { Stack } from 'expo-router/stack'
+import { ThemeColors } from '../../../common/constants/theme'
 
 const StockLayout = () => {
   return (
     <Stack
       screenOptions={{
         headerStyle: {
-          backgroundColor: '#EE99C2',
+          backgroundColor: ThemeColors.secondaryColor,
         },
-        headerTintColor: '#fff',
+        headerTintColor: ThemeColors.white,
         headerTitleStyle: {
           fontWeight: 'bold',
         },

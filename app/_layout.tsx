@@ -3,6 +3,7 @@ import { Stack } from 'expo-router/stack'
 import { Provider } from 'react-redux'
 import { NavigationRoutes } from '../common/constants/navigation'
 import { store } from '../store/store'
+import { ThemeColors } from '../common/constants/theme'
 
 const RootLayout = () => {
   return (
@@ -10,9 +11,9 @@ const RootLayout = () => {
       <Stack
         screenOptions={{
           headerStyle: {
-            backgroundColor: '#EE99C2',
+            backgroundColor: ThemeColors.secondaryColor,
           },
-          headerTintColor: '#fff',
+          headerTintColor: ThemeColors.white,
           headerTitleStyle: {
             fontWeight: 'bold',
           },
