@@ -5,4 +5,5 @@ export const ThemeColors = {
   whiteText: '#FEFBF6',
   backgroundColor: '#F6F5F5',
   pageBackground: '#FFE5E5',
+  white: '#ffffff',
 }

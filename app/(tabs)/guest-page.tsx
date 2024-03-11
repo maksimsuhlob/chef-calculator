@@ -3,11 +3,11 @@ import { StatusBar } from 'expo-status-bar'
 import {
   Button, StyleSheet, Text, View,
 } from 'react-native'
-import { router } from 'expo-router'
-import edamamService from '../services/edamam/edamam'
-import ButtonLogin from '../components/atoms/buttomLogin'
-import { ThemeColors } from '../common/constants/theme'
-import { NavigationRoutes } from '../common/constants/navigation'
+import { useRouter } from 'expo-router'
+import edamamService from '../../services/edamam/edamam'
+import ButtonLogin from '../../components/atoms/buttomLogin'
+import { ThemeColors } from '../../common/constants/theme'
+import { NavigationRoutes } from '../../common/constants/navigation'
 
 const styles = StyleSheet.create({
   container: {
@@ -18,8 +18,10 @@ const styles = StyleSheet.create({
   },
 })
 const Page2 = () => {
+  const { navigate } = useRouter()
+
   const handleGoLogin = async () => {
-    router.navigate(NavigationRoutes.login)
+    navigate(NavigationRoutes.login)
   }
 
   return (
