@@ -9,7 +9,6 @@
     "web": "expo start --web",
     "lint": "eslint . --fix",
     "react-devtools-local": "npx react-devtools && adb reverse tcp:8097 tcp:8097",
-    "redux-devtools": "redux-devtools --hostname=localhost --port=8000",
     "predeploy": "expo export -p web",
     "deploy-web": "npm run predeploy && firebase deploy --only hosting",
     "prepare": "husky"
@@ -22,6 +21,7 @@
     "@react-navigation/native": "^6.1.9",
     "@reduxjs/toolkit": "^2.2.1",
     "@types/react": "~18.2.45",
+    "@uidotdev/usehooks": "^2.4.1",
     "axios": "^1.6.7",
     "expo": "~50.0.11",
     "expo-constants": "~15.4.5",

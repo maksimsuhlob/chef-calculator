@@ -3,25 +3,39 @@ import { RootState } from './store'
 import Edamam from '../services/edamam/edamam'
 import { IIngredient } from '../services/edamam/edamam-types'
 
-interface CounterState {
+interface StockState {
     ingredient: IIngredient|null;
     status: 'idle' | 'loading' | 'failed';
+    autocomplete: string[]
 }
 
-const initialState: CounterState = {
+const initialState: StockState = {
   ingredient: null,
   status: 'idle',
+  autocomplete: [],
 }
 
 export const getIngredientAction = createAsyncThunk(
-  'stock/getIngredient',
-  async (ingredientName: string) => {
+  'stock/getIngredientAction',
+  async (ingredientName: string, thunkAPI) => {
     try {
+      thunkAPI.dispatch(clearAutocomplete())
       const data = await Edamam.getIngredient(ingredientName)
 
       return data.parsed[0].food
     } catch (e) {
       console.error('stock/getIngredient', e)
+      throw e
+    }
+  },
+)
+export const getIngredientAutocompleteAction = createAsyncThunk(
+  'stock/getIngredientAutocompleteAction',
+  async (ingredientName: string) => {
+    try {
+      return await Edamam.getAutoComplete(ingredientName)
+    } catch (e) {
+      console.error('stock/getIngredientAutocompleteAction', e)
       throw e
     }
   },
@@ -38,6 +52,9 @@ export const stockSlice = createSlice({
       // immutable state based off those changes
       state.ingredient = null
     },
+    clearAutocomplete: (state) => {
+      state.autocomplete = []
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -48,14 +65,17 @@ export const stockSlice = createSlice({
         state.status = 'idle'
         state.ingredient = action.payload
       })
+      .addCase(getIngredientAutocompleteAction.fulfilled, (state, action) => {
+        state.autocomplete = action.payload
+      })
   },
 })
 
-export const { clearIngredient } = stockSlice.actions
+export const { clearIngredient, clearAutocomplete } = stockSlice.actions
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
-export const selectCount = (state: RootState) => { return state.stock }
+export const selectStock = (state: RootState) => { return state.stock }
 
 export const stockReducer = stockSlice.reducer

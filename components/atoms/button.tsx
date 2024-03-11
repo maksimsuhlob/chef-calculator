@@ -4,7 +4,7 @@ import { ThemeColors } from '../../common/constants/theme'
 
 interface IProps {
     onPress: ()=>void
-    name: string
+    name: string,
 }
 const styles = StyleSheet.create({
   button: {
@@ -14,12 +14,13 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     borderRadius: 5,
     marginHorizontal: 5,
+    width: 'auto',
   },
   buttonText: {
     color: ThemeColors.whiteText,
   },
 })
-const ProductButton = ({ onPress, name }:IProps) => {
+const Button = ({ onPress, name }:IProps) => {
   const handlePress = () => {
     onPress()
   }
@@ -31,4 +32,4 @@ const ProductButton = ({ onPress, name }:IProps) => {
   )
 }
 
-export default ProductButton
+export default Button

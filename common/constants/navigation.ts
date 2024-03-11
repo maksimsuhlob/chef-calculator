@@ -6,4 +6,5 @@ export const NavigationRoutes = {
   authorization: (page:AuthorizationPage) => { return (`authorization/${page}`) },
   stock: 'stock',
   product: 'stock/[product]',
+  addIngredient: 'stock/add',
 }

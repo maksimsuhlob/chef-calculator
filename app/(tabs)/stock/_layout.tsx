@@ -15,6 +15,7 @@ const StockLayout = () => {
       }}
     >
       <Stack.Screen name="index" options={{ headerShown: true, title: 'stock' }} />
+      <Stack.Screen name="add" options={{ headerShown: true }} />
       <Stack.Screen name="[product]" options={{ headerShown: true }} />
     </Stack>
   )

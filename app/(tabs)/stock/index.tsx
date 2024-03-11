@@ -1,31 +1,39 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
-  Button,
   FlatList, Text, View,
 } from 'react-native'
-import { useRouter } from 'expo-router'
+import { useNavigation, useRouter } from 'expo-router'
 import { NavigationRoutes } from '../../../common/constants/navigation'
-import ProductButton from '../../../components/atoms/productButton'
+import Button from '../../../components/atoms/button'
 import { IProduct } from '../../../services/firebase/stock/interfaces'
-import { useAppDispatch } from '../../../store/store'
-import { getIngredientAction } from '../../../store/stockSlice'
 
 const StockPage = () => {
   const { navigate } = useRouter()
-  const dispatch = useAppDispatch()
+  const { setOptions } = useNavigation()
+
+  useEffect(() => {
+    setOptions({
+      headerRight: renderAddIngredientButton,
+    })
+  }, [])
+  const renderAddIngredientButton = () => {
+    return <Button name="add ingredient" onPress={handlePressAddIngredient} />
+  }
   const handleProductPress = (productId: string) => {
     return () => {
       navigate({ pathname: NavigationRoutes.product, params: { product: productId } })
     }
   }
+  const handlePressAddIngredient = () => {
+    navigate({ pathname: NavigationRoutes.addIngredient })
+  }
   const renderList = ({ item }: { item: IProduct }) => {
-    return <ProductButton name={item.name} onPress={handleProductPress(item.id)} />
+    return <Button name={item.name} onPress={handleProductPress(item.id)} />
   }
 
   return (
     <View>
       <Text>List of products</Text>
-      <Button title="test" onPress={() => { return dispatch(getIngredientAction('flour')) }} />
       <FlatList
         data={[]}
         renderItem={renderList}
