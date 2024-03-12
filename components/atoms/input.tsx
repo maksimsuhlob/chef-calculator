@@ -1,12 +1,15 @@
 import React from 'react'
-import { TextInput, StyleSheet, View } from 'react-native'
+import {
+  TextInput, StyleSheet, View, KeyboardType,
+} from 'react-native'
 import { ThemeColors } from '../../common/constants/theme'
 
 interface IProps {
     labelText: string
-    value?: string
+    value?: string|number
     setValue: React.Dispatch<React.SetStateAction<string>>
     secureText?: boolean
+    keyboardType?: KeyboardType
 }
 
 const styles = StyleSheet.create({
@@ -29,12 +32,13 @@ const styles = StyleSheet.create({
 })
 
 const Input = ({
-  value, labelText, setValue, secureText,
+  value, labelText, setValue, secureText, keyboardType,
 }: IProps) => {
   return (
     <View style={styles.inputView}>
       <TextInput
-        value={value}
+        keyboardType={keyboardType}
+        value={value?.toString()}
         style={styles.inputText}
         placeholder={labelText}
         placeholderTextColor="#003f5c"

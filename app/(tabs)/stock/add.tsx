@@ -9,8 +9,10 @@ import {
   selectStock,
 } from '../../../store/stockSlice'
 import { useAppDispatch, useAppSelector } from '../../../store/store'
+import IngredientForm from '../../../components/molecules/ingredientForm'
+import { IIngredient } from '../../../services/edamam/edamam-types'
 
-const StockPage = () => {
+const AddIngredient = () => {
   const dispatch = useAppDispatch()
   const { ingredient, autocomplete } = useAppSelector(selectStock)
   const [searchString, setSearchString] = useState('')
@@ -38,6 +40,9 @@ const StockPage = () => {
   const handlePressCloseSuggester = () => {
     dispatch(clearAutocomplete())
   }
+  const handleChangeIngredient = (ingredientData:IIngredient) => {
+    console.warn('!!!!!!', ingredientData)
+  }
 
   return (
     <View>
@@ -47,6 +52,7 @@ const StockPage = () => {
         onPressCloseSuggester={handlePressCloseSuggester}
         suggestions={autocomplete.map((item) => { return { id: item, label: item } })}
       />
+      <IngredientForm data={ingredient} onChange={handleChangeIngredient} />
       <Text>
         {
           JSON.stringify(ingredient, null, 2)
@@ -56,4 +62,4 @@ const StockPage = () => {
   )
 }
 
-export default StockPage
+export default AddIngredient
