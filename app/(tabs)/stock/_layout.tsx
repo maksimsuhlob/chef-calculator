@@ -1,6 +1,6 @@
 import React from 'react'
 import { Stack } from 'expo-router/stack'
-import { ThemeColors } from '../../../common/constants/theme'
+import { ThemeColors } from '../../../theme/colors/colors'
 
 const StockLayout = () => {
   return (

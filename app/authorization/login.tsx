@@ -4,8 +4,8 @@ import {
 } from 'react-native'
 import { Link, useRouter } from 'expo-router'
 import InputLogin from '../../components/atoms/inputLogin'
-import ButtonLogin from '../../components/atoms/buttomLogin'
-import { ThemeColors } from '../../common/constants/theme'
+import AppButton from '../../components/atoms/app-button'
+import { ThemeColors } from '../../theme/colors/colors'
 import { NavigationRoutes } from '../../common/constants/navigation'
 
 const styles = StyleSheet.create({
@@ -60,9 +60,9 @@ const App = () => {
       <InputLogin labelText="Password" setValue={setPassword} secureText />
       <Link href={NavigationRoutes.authorization('restore-password')}>Forgot your password?</Link>
       <View style={styles.span} />
-      <ButtonLogin buttonText="LOGIN" handleClick={handleLogin} />
-      <ButtonLogin buttonText="Be my guest" handleClick={handleGuest} />
-      <ButtonLogin buttonText="Registration" handleClick={handleRegistration} />
+      <AppButton text="LOGIN" type="secondary" onPress={handleLogin} />
+      <AppButton text="Be my guest" type="secondary" onPress={handleGuest} />
+      <AppButton text="Registration" type="secondary" onPress={handleRegistration} />
     </View>
   )
 }

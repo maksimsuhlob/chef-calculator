@@ -3,7 +3,7 @@ import {
   Button, StyleSheet, Text, View,
 } from 'react-native'
 import { useRouter } from 'expo-router'
-import { ThemeColors } from '../../common/constants/theme'
+import { ThemeColors } from '../../theme/colors/colors'
 import { NavigationRoutes } from '../../common/constants/navigation'
 
 const styles = StyleSheet.create({

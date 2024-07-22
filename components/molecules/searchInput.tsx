@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, View } from 'react-native'
-import { ThemeColors } from '../../common/constants/theme'
+import { ThemeColors } from '../../theme/colors/colors'
 import Input from '../atoms/input'
-import Button from '../atoms/button'
+import AppButton from '../atoms/app-button'
 import Suggester from './suggester'
 
 interface IProps {
@@ -78,7 +78,7 @@ const SearchInput = ({
     <View style={styles.container}>
       <View style={styles.inputContainer}>
         <Input value={searchString} labelText="Search" setValue={handleChangeSearchString} />
-        <Button name="search" onPress={handleSearchButtonClick} />
+        <AppButton text="search" type="primary" onPress={handleSearchButtonClick} />
       </View>
       <View style={styles.suggesterContainer}>
         <Suggester suggestions={suggestions} onPress={handlePressSuggestion} onClose={handlePressClose} />

@@ -4,7 +4,7 @@ import {
 } from 'react-native'
 import { useNavigation, useRouter } from 'expo-router'
 import { NavigationRoutes } from '../../../common/constants/navigation'
-import Button from '../../../components/atoms/button'
+import AppButton from '../../../components/atoms/app-button'
 import { IProduct } from '../../../services/firebase/stock/interfaces'
 
 const StockPage = () => {
@@ -17,7 +17,7 @@ const StockPage = () => {
     })
   }, [])
   const renderAddIngredientButton = () => {
-    return <Button name="add ingredient" onPress={handlePressAddIngredient} />
+    return <AppButton text="add ingredient" type="primary" onPress={handlePressAddIngredient} />
   }
   const handleProductPress = (productId: string) => {
     return () => {
@@ -28,7 +28,7 @@ const StockPage = () => {
     navigate({ pathname: NavigationRoutes.addIngredient })
   }
   const renderList = ({ item }: { item: IProduct }) => {
-    return <Button name={item.name} onPress={handleProductPress(item.id)} />
+    return <AppButton text={item.name} type="primary" onPress={handleProductPress(item.id)} />
   }
 
   return (
