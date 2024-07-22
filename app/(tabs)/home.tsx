@@ -4,8 +4,8 @@ import {
 } from 'react-native'
 
 import { useRouter } from 'expo-router'
-import { ThemeColors } from '../../common/constants/theme'
-import ButtonLogin from '../../components/atoms/buttomLogin'
+import { ThemeColors } from '../../theme/colors/colors'
+import ButtonLogin from '../../components/atoms/app-button'
 import { NavigationRoutes } from '../../common/constants/navigation'
 
 const styles = StyleSheet.create({
@@ -35,7 +35,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <Text>Home</Text>
-      <ButtonLogin buttonText="login" handleClick={handleLogin} />
+      <ButtonLogin text="login" type="secondary" onPress={handleLogin} />
     </View>
   )
 }

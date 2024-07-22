@@ -3,7 +3,7 @@ import { Dimensions, ScrollView, View } from 'react-native'
 import { Controller, useForm } from 'react-hook-form'
 import { IIngredient } from '../../services/edamam/edamam-types'
 import Input from '../atoms/input'
-import Button from '../atoms/button'
+import AppButton from '../atoms/app-button'
 
 interface IProps {
   data: IIngredient
@@ -159,7 +159,7 @@ const IngredientForm = ({ data, onChange }:IProps) => {
             )
           }}
         />
-        <Button name="save" onPress={handleSubmit(onChange)} />
+        <AppButton text="save" onPress={handleSubmit(onChange)} />
       </ScrollView>
     </View>
   )

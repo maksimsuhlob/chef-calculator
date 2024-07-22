@@ -1,8 +1,8 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import SuggesterItem from '../atoms/suggesterItem'
-import { ThemeColors } from '../../common/constants/theme'
-import Button from '../atoms/button'
+import { ThemeColors } from '../../theme/colors/colors'
+import AppButton from '../atoms/app-button'
 
 interface IProps {
     suggestions: {id:string, label: string}[]
@@ -28,7 +28,7 @@ const Suggester = ({ suggestions, onPress, onClose }:IProps) => {
 
   return (
     <View style={styles.suggester}>
-      <Button onPress={handlePressClose} name="close" />
+      <AppButton onPress={handlePressClose} text="close" />
       {suggestions.map((item) => {
         return (
           <SuggesterItem

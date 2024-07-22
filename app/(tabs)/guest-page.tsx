@@ -1,12 +1,12 @@
 import React from 'react'
 import { StatusBar } from 'expo-status-bar'
 import {
-  Button, StyleSheet, Text, View,
+  StyleSheet, Text, View,
 } from 'react-native'
 import { useRouter } from 'expo-router'
 import edamamService from '../../services/edamam/edamam'
-import ButtonLogin from '../../components/atoms/buttomLogin'
-import { ThemeColors } from '../../common/constants/theme'
+import AppButton from '../../components/atoms/app-button'
+import { ThemeColors } from '../../theme/colors/colors'
 import { NavigationRoutes } from '../../common/constants/navigation'
 
 const styles = StyleSheet.create({
@@ -27,13 +27,15 @@ const Page2 = () => {
   return (
     <View style={styles.container}>
       <Text>Max is a gay, but what a gay he is</Text>
-      <ButtonLogin buttonText="Go back to login" handleClick={handleGoLogin} />
-      <Button
-        title="getflour"
+      <AppButton text="Go back to login" type="secondary" onPress={handleGoLogin} />
+      <AppButton
+        text="getflour"
+        type="primary"
         onPress={() => { return edamamService.getIngredient('flour') }}
       />
-      <Button
-        title="autocomplete"
+      <AppButton
+        text="autocomplete"
+        type="primary"
         onPress={() => { return edamamService.getAutoComplete('pep') }}
       />
       <StatusBar style="auto" />

@@ -2,7 +2,7 @@ import React from 'react'
 import {
   TextInput, StyleSheet, View, KeyboardType,
 } from 'react-native'
-import { ThemeColors } from '../../common/constants/theme'
+import { ThemeColors } from '../../theme/colors/colors'
 
 interface IProps {
     labelText: string
