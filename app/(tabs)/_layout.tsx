@@ -1,40 +1,45 @@
-import React from 'react'
-import { Tabs } from 'expo-router'
-import { FontAwesome } from '@expo/vector-icons'
-import { NavigationRoutes } from '../../common/constants/navigation'
+import { Tabs } from 'expo-router';
+import React from 'react';
+import { Platform } from 'react-native';
 
-const TabLayout = () => {
-  const renderHomeIcon = ({ color }) => { return <FontAwesome size={28} name="home" color={color} /> }
-  const renderGuestIcon = ({ color }) => { return <FontAwesome size={28} name="users" color={color} /> }
-  const renderStockIcon = ({ color }) => { return <FontAwesome size={28} name="th-list" color={color} /> }
+import { HapticTab } from '@/components/HapticTab';
+import { IconSymbol } from '@/components/ui/IconSymbol';
+import TabBarBackground from '@/components/ui/TabBarBackground';
+import { Colors } from '@/constants/Colors';
+import { useColorScheme } from '@/hooks/useColorScheme';
+
+export default function TabLayout() {
+  const colorScheme = useColorScheme();
 
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: 'blue' }}>
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        headerShown: false,
+        tabBarButton: HapticTab,
+        tabBarBackground: TabBarBackground,
+        tabBarStyle: Platform.select({
+          ios: {
+            // Use a transparent background on iOS to show the blur effect
+            position: 'absolute',
+          },
+          default: {},
+        }),
+      }}>
       <Tabs.Screen
-        name={NavigationRoutes.home}
+        name="index"
         options={{
           title: 'Home',
-          headerShown: false,
-          tabBarIcon: renderHomeIcon,
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
         }}
       />
       <Tabs.Screen
-        name={NavigationRoutes.guestPage}
+        name="explore"
         options={{
-          title: 'guest page',
-          tabBarIcon: renderGuestIcon,
-        }}
-      />
-      <Tabs.Screen
-        name={NavigationRoutes.stock}
-        options={{
-          title: 'stock',
-          headerShown: false,
-          tabBarIcon: renderStockIcon,
+          title: 'Explore',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}
       />
     </Tabs>
-  )
+  );
 }
-
-export default TabLayout
